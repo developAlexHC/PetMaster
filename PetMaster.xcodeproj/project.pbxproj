@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C12962E83023C671492D2374 /* Pods_PetMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D877BD86FECB57E3954AF80 /* Pods_PetMaster.framework */; };
+		FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513F9A20481F4500E36A72 /* PetInfo.swift */; };
+		FA513F9E20482CFC00E36A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513F9D20482CFC00E36A72 /* Constants.swift */; };
+		FA513FC7204846D400E36A72 /* Edit_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */; };
+		FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */; };
+		FA574687204938E300D3FFAF /* PetCell_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574686204938E300D3FFAF /* PetCell_ViewController.swift */; };
+		FACDF46E2043E697000CF551 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDF46D2043E697000CF551 /* AppDelegate.swift */; };
+		FACDF4732043E697000CF551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACDF4712043E697000CF551 /* Main.storyboard */; };
+		FACDF4762043E697000CF551 /* PetMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FACDF4742043E697000CF551 /* PetMaster.xcdatamodeld */; };
+		FACDF4782043E697000CF551 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACDF4772043E697000CF551 /* Assets.xcassets */; };
+		FACDF47B2043E697000CF551 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACDF4792043E697000CF551 /* LaunchScreen.storyboard */; };
+		FACDF4832043ECC2000CF551 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDF4822043ECC2000CF551 /* Login_ViewController.swift */; };
+		FACDF4852043F16A000CF551 /* Register_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDF4842043F16A000CF551 /* Register_ViewController.swift */; };
+		FACDF4872043F1E4000CF551 /* ForgetPassword_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDF4862043F1E4000CF551 /* ForgetPassword_ViewController.swift */; };
+		FACDF4892043F58B000CF551 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FACDF4882043F58B000CF551 /* GoogleService-Info.plist */; };
+		FAD0AF33204443D4004661A1 /* MainView_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0AF32204443D4004661A1 /* MainView_ViewController.swift */; };
+		FAD0AF3B20447776004661A1 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAD0AF3A20447776004661A1 /* credentials.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D877BD86FECB57E3954AF80 /* Pods_PetMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87D288C5E38C827417727BEF /* Pods-PetMaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster.release.xcconfig"; sourceTree = "<group>"; };
+		DF367D0CD9DCD76695C0CC45 /* Pods-PetMaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetMaster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster.debug.xcconfig"; sourceTree = "<group>"; };
+		FA513F9A20481F4500E36A72 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
+		FA513F9D20482CFC00E36A72 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit_TableViewController.swift; sourceTree = "<group>"; };
+		FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_CollectionViewCell.swift; sourceTree = "<group>"; };
+		FA574686204938E300D3FFAF /* PetCell_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell_ViewController.swift; sourceTree = "<group>"; };
+		FACDF46A2043E696000CF551 /* PetMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FACDF46D2043E697000CF551 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FACDF4722043E697000CF551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FACDF4752043E697000CF551 /* PetMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetMaster.xcdatamodel; sourceTree = "<group>"; };
+		FACDF4772043E697000CF551 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FACDF47A2043E697000CF551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FACDF47C2043E697000CF551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FACDF4822043ECC2000CF551 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
+		FACDF4842043F16A000CF551 /* Register_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register_ViewController.swift; sourceTree = "<group>"; };
+		FACDF4862043F1E4000CF551 /* ForgetPassword_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassword_ViewController.swift; sourceTree = "<group>"; };
+		FACDF4882043F58B000CF551 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAD0AF32204443D4004661A1 /* MainView_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView_ViewController.swift; sourceTree = "<group>"; };
+		FAD0AF3A20447776004661A1 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FACDF4672043E696000CF551 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C12962E83023C671492D2374 /* Pods_PetMaster.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D0F3C95767A27846EAE7FEBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D877BD86FECB57E3954AF80 /* Pods_PetMaster.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8F570BA43E2E090AD3492B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF367D0CD9DCD76695C0CC45 /* Pods-PetMaster.debug.xcconfig */,
+				87D288C5E38C827417727BEF /* Pods-PetMaster.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA513F9C20482CD600E36A72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA513F9A20481F4500E36A72 /* PetInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FACDF4612043E696000CF551 = {
+			isa = PBXGroup;
+			children = (
+				FA513F9C20482CD600E36A72 /* Model */,
+				FACDF46C2043E696000CF551 /* PetMaster */,
+				FACDF46B2043E696000CF551 /* Products */,
+				D8F570BA43E2E090AD3492B2 /* Pods */,
+				D0F3C95767A27846EAE7FEBD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FACDF46B2043E696000CF551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FACDF46A2043E696000CF551 /* PetMaster.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FACDF46C2043E696000CF551 /* PetMaster */ = {
+			isa = PBXGroup;
+			children = (
+				FA513F9D20482CFC00E36A72 /* Constants.swift */,
+				FACDF48A2043F7C7000CF551 /* Controller */,
+				FACDF46D2043E697000CF551 /* AppDelegate.swift */,
+				FACDF4712043E697000CF551 /* Main.storyboard */,
+				FACDF4772043E697000CF551 /* Assets.xcassets */,
+				FACDF4792043E697000CF551 /* LaunchScreen.storyboard */,
+				FACDF47C2043E697000CF551 /* Info.plist */,
+				FACDF4742043E697000CF551 /* PetMaster.xcdatamodeld */,
+				FACDF4882043F58B000CF551 /* GoogleService-Info.plist */,
+				FAD0AF3A20447776004661A1 /* credentials.plist */,
+			);
+			path = PetMaster;
+			sourceTree = "<group>";
+		};
+		FACDF48A2043F7C7000CF551 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FACDF4822043ECC2000CF551 /* Login_ViewController.swift */,
+				FACDF4862043F1E4000CF551 /* ForgetPassword_ViewController.swift */,
+				FACDF4842043F16A000CF551 /* Register_ViewController.swift */,
+				FAD0AF32204443D4004661A1 /* MainView_ViewController.swift */,
+				FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */,
+				FA574686204938E300D3FFAF /* PetCell_ViewController.swift */,
+				FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FACDF4692043E696000CF551 /* PetMaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FACDF47F2043E697000CF551 /* Build configuration list for PBXNativeTarget "PetMaster" */;
+			buildPhases = (
+				03C2FC961955872393D425D3 /* [CP] Check Pods Manifest.lock */,
+				FACDF4662043E696000CF551 /* Sources */,
+				FACDF4672043E696000CF551 /* Frameworks */,
+				FACDF4682043E696000CF551 /* Resources */,
+				74C6035362B1895CF7058795 /* [CP] Embed Pods Frameworks */,
+				E7461D69147773A54174A6A2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetMaster;
+			productName = PetMaster;
+			productReference = FACDF46A2043E696000CF551 /* PetMaster.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FACDF4622043E696000CF551 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Alex Hsieh";
+				TargetAttributes = {
+					FACDF4692043E696000CF551 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FACDF4652043E696000CF551 /* Build configuration list for PBXProject "PetMaster" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FACDF4612043E696000CF551;
+			productRefGroup = FACDF46B2043E696000CF551 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FACDF4692043E696000CF551 /* PetMaster */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FACDF4682043E696000CF551 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FACDF47B2043E697000CF551 /* LaunchScreen.storyboard in Resources */,
+				FACDF4892043F58B000CF551 /* GoogleService-Info.plist in Resources */,
+				FAD0AF3B20447776004661A1 /* credentials.plist in Resources */,
+				FACDF4782043E697000CF551 /* Assets.xcassets in Resources */,
+				FACDF4732043E697000CF551 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03C2FC961955872393D425D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetMaster-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74C6035362B1895CF7058795 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7461D69147773A54174A6A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetMaster/Pods-PetMaster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FACDF4662043E696000CF551 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FACDF4832043ECC2000CF551 /* Login_ViewController.swift in Sources */,
+				FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */,
+				FACDF4872043F1E4000CF551 /* ForgetPassword_ViewController.swift in Sources */,
+				FA513FC7204846D400E36A72 /* Edit_TableViewController.swift in Sources */,
+				FACDF4762043E697000CF551 /* PetMaster.xcdatamodeld in Sources */,
+				FA513F9E20482CFC00E36A72 /* Constants.swift in Sources */,
+				FA574687204938E300D3FFAF /* PetCell_ViewController.swift in Sources */,
+				FACDF46E2043E697000CF551 /* AppDelegate.swift in Sources */,
+				FAD0AF33204443D4004661A1 /* MainView_ViewController.swift in Sources */,
+				FACDF4852043F16A000CF551 /* Register_ViewController.swift in Sources */,
+				FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FACDF4712043E697000CF551 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FACDF4722043E697000CF551 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FACDF4792043E697000CF551 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FACDF47A2043E697000CF551 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FACDF47D2043E697000CF551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FACDF47E2043E697000CF551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FACDF4802043E697000CF551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF367D0CD9DCD76695C0CC45 /* Pods-PetMaster.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28KY3QU74P;
+				INFOPLIST_FILE = PetMaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develop-AlexHC.PetMaster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FACDF4812043E697000CF551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87D288C5E38C827417727BEF /* Pods-PetMaster.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28KY3QU74P;
+				INFOPLIST_FILE = PetMaster/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.develop-AlexHC.PetMaster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FACDF4652043E696000CF551 /* Build configuration list for PBXProject "PetMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FACDF47D2043E697000CF551 /* Debug */,
+				FACDF47E2043E697000CF551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FACDF47F2043E697000CF551 /* Build configuration list for PBXNativeTarget "PetMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FACDF4802043E697000CF551 /* Debug */,
+				FACDF4812043E697000CF551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FACDF4742043E697000CF551 /* PetMaster.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FACDF4752043E697000CF551 /* PetMaster.xcdatamodel */,
+			);
+			currentVersion = FACDF4752043E697000CF551 /* PetMaster.xcdatamodel */;
+			path = PetMaster.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FACDF4622043E696000CF551 /* Project object */;
+}
