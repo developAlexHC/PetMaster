@@ -9,6 +9,7 @@ target 'PetMaster' do
   # Pods for PetMaster
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   
   # Pods for Facebook
   pod 'Bolts'

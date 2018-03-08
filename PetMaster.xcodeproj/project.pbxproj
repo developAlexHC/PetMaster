@@ -13,6 +13,8 @@
 		FA513FC7204846D400E36A72 /* Edit_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */; };
 		FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */; };
 		FA574687204938E300D3FFAF /* PetCell_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574686204938E300D3FFAF /* PetCell_ViewController.swift */; };
+		FABCF30E204FFCC600045411 /* Pet_Detail_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCF30D204FFCC600045411 /* Pet_Detail_TableViewController.swift */; };
+		FABCF33720517EC400045411 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCF33620517EC400045411 /* DatabaseService.swift */; };
 		FACDF46E2043E697000CF551 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDF46D2043E697000CF551 /* AppDelegate.swift */; };
 		FACDF4732043E697000CF551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACDF4712043E697000CF551 /* Main.storyboard */; };
 		FACDF4762043E697000CF551 /* PetMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FACDF4742043E697000CF551 /* PetMaster.xcdatamodeld */; };
@@ -35,6 +37,8 @@
 		FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit_TableViewController.swift; sourceTree = "<group>"; };
 		FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA574686204938E300D3FFAF /* PetCell_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCell_ViewController.swift; sourceTree = "<group>"; };
+		FABCF30D204FFCC600045411 /* Pet_Detail_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_Detail_TableViewController.swift; sourceTree = "<group>"; };
+		FABCF33620517EC400045411 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		FACDF46A2043E696000CF551 /* PetMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACDF46D2043E697000CF551 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACDF4722043E697000CF551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				FA513F9A20481F4500E36A72 /* PetInfo.swift */,
+				FABCF33620517EC400045411 /* DatabaseService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,7 +95,6 @@
 		FACDF4612043E696000CF551 = {
 			isa = PBXGroup;
 			children = (
-				FA513F9C20482CD600E36A72 /* Model */,
 				FACDF46C2043E696000CF551 /* PetMaster */,
 				FACDF46B2043E696000CF551 /* Products */,
 				D8F570BA43E2E090AD3492B2 /* Pods */,
@@ -109,9 +113,10 @@
 		FACDF46C2043E696000CF551 /* PetMaster */ = {
 			isa = PBXGroup;
 			children = (
-				FA513F9D20482CFC00E36A72 /* Constants.swift */,
+				FA513F9C20482CD600E36A72 /* Model */,
 				FACDF48A2043F7C7000CF551 /* Controller */,
 				FACDF46D2043E697000CF551 /* AppDelegate.swift */,
+				FA513F9D20482CFC00E36A72 /* Constants.swift */,
 				FACDF4712043E697000CF551 /* Main.storyboard */,
 				FACDF4772043E697000CF551 /* Assets.xcassets */,
 				FACDF4792043E697000CF551 /* LaunchScreen.storyboard */,
@@ -130,9 +135,10 @@
 				FACDF4862043F1E4000CF551 /* ForgetPassword_ViewController.swift */,
 				FACDF4842043F16A000CF551 /* Register_ViewController.swift */,
 				FAD0AF32204443D4004661A1 /* MainView_ViewController.swift */,
-				FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */,
 				FA574686204938E300D3FFAF /* PetCell_ViewController.swift */,
 				FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */,
+				FABCF30D204FFCC600045411 /* Pet_Detail_TableViewController.swift */,
+				FA513FC6204846D400E36A72 /* Edit_TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -251,6 +258,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,10 +295,12 @@
 				FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */,
 				FACDF4872043F1E4000CF551 /* ForgetPassword_ViewController.swift in Sources */,
 				FA513FC7204846D400E36A72 /* Edit_TableViewController.swift in Sources */,
+				FABCF30E204FFCC600045411 /* Pet_Detail_TableViewController.swift in Sources */,
 				FACDF4762043E697000CF551 /* PetMaster.xcdatamodeld in Sources */,
 				FA513F9E20482CFC00E36A72 /* Constants.swift in Sources */,
 				FA574687204938E300D3FFAF /* PetCell_ViewController.swift in Sources */,
 				FACDF46E2043E697000CF551 /* AppDelegate.swift in Sources */,
+				FABCF33720517EC400045411 /* DatabaseService.swift in Sources */,
 				FAD0AF33204443D4004661A1 /* MainView_ViewController.swift in Sources */,
 				FACDF4852043F16A000CF551 /* Register_ViewController.swift in Sources */,
 				FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */,
