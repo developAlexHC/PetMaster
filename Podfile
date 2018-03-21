@@ -10,7 +10,8 @@ target 'PetMaster' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  
+  pod 'Firebase/Storage'
+
   # Pods for Facebook
   pod 'Bolts'
   pod 'FBSDKCoreKit'

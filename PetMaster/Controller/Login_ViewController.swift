@@ -10,66 +10,122 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FBSDKLoginKit
-import GoogleSignIn
 
 class Login_ViewController: UIViewController {
     
+    @IBOutlet weak var handleSignInRegister_Segment: UISegmentedControl!
+    
+    @IBOutlet weak var HandleSignIn: UIStackView!
     @IBOutlet weak var emailLogin: UITextField!
     @IBOutlet weak var passwordLogin: UITextField!
+    
+    @IBOutlet weak var HandleRegister: UIStackView!
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var registerEmail: UITextField!
+    @IBOutlet weak var registerPassword: UITextField!
+    
+    var homeController: Home_ViewController?
+
     
     //登入按鈕
     @IBAction func loginButton(_ sender: Any) {
         login()
-        closeKeyboard()
     }
    
     
-
-    @IBAction func signInWithGoogle(_ sender: Any) {
-        GIDSignIn.sharedInstance().signIn()
+    @IBAction func registerButton(_ sender: Any) {
+        register()
     }
-/*
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error)
-            return
+    
+    //facebook登入
+    @IBAction func signInWithFacebook(_ sender: Any) {
+        faceBookSignIn()
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //handleSignInRegister()
+        
+    }
+    
+    func login() {
+        guard let email = emailLogin.text, let password = passwordLogin.text else {return}
+        if email.isEmpty || password.isEmpty {
+            showMsg("請輸入email或密碼")
         }
-        guard let authentication = user.authentication else {return}
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if let error = error {
+
+        
+        Auth.auth().signIn(withEmail: email, password: password ) { (user, error) in
+            if error != nil {
+                self.showMsg((error?.localizedDescription)!)
+                return
+            }
+            // 註冊成功並顯示已登入
+            self.homeController?.fetchUserSetTitle()
+            self.dismiss(animated: true, completion: nil)
+
+        }
+    }
+    
+    func register() {
+        guard let name = userName.text, let email = registerEmail.text, let password = registerPassword.text else {return}
+        if name == "" || email == "" || password == "" {
+            showMsg("欄位不得空白")
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil {
                 print(error)
                 return
             }
             
-            vc.emailLabel.text = user?.email
-            vc.nameLabel.text = user?.displayName
+            //successful creat new user
+            guard let uid = user?.uid else {return}
+            let userParameter = ["name": name, "email": email ]
+            FirebaseService.share.userRenfence.child(uid).setValue(userParameter)
+            self.dismiss(animated: true, completion: nil)
+            self.homeController?.fetchUserSetTitle()
             
-            DispatchQueue.global().async {
-                let imgData = try? Data(contentsOf: (user?.photoURL)!)
-                
-                DispatchQueue.main.async {
-                    if let data = imgData{
-                        let image = UIImage(data: data)
-                        vc.profileImgView.image = image
-                    }
-                }
-            }
-            
+    
         }
     }
- */
     
-    //facebook登入
-    @IBAction func signInWithFacebook(_ sender: Any) {
+    //按任意畫面收鍵盤
+    @IBAction func closeKeyboardGesture(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func segmentButton(_ sender: Any) {
+        switch handleSignInRegister_Segment.selectedSegmentIndex {
+        case 0:
+            HandleSignIn.isHidden = false
+            HandleRegister.isHidden = true
+        case 1:
+            HandleSignIn.isHidden = true
+            HandleRegister.isHidden = false
+        default:
+            return
+        }
+    }
+    
+    func handleSignInRegister() {
+        handleSignInRegister_Segment.setTitle("Sign In", forSegmentAt: 0)
+        handleSignInRegister_Segment.setTitle("Register", forSegmentAt: 1)
+    }
+
+
+    
+    func faceBookSignIn(){
+        
         let fbLoginManager = FBSDKLoginManager()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"] , from: self) { (result, error) in
             
             if let error = error {
-                    print("Failed to login:\(error.localizedDescription)")
+                print("Failed to login:\(error.localizedDescription)")
                 self.showMsg("Failed to login\(error.localizedDescription)")
             }else{
-                self.MainView()
+                self.presentViewController(viewControllerID: "MainView")
                 print("tokenString: \(FBSDKAccessToken.current().tokenString)")
             }
             
@@ -77,95 +133,29 @@ class Login_ViewController: UIViewController {
                 print("Failed to get access token")
                 return
             }
-            
             let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             Auth.auth().signIn(with: credential, completion: { (user, error) in
-                if let error = error {
-                    print("Login Error:\(error.localizedDescription)")
-                    self.showMsg("Login Error")
-                }
+                guard let error = error else { return }
+                print("Login Error:\(error.localizedDescription)")
+                self.showMsg("Login Error")
             })
         }
-    }
-    
 
-
-    //按任意畫面收鍵盤
-    @IBAction func closeKeyboardGesture(_ sender: Any) {
-        closeKeyboard()
     }
     
-    
-    func login() {
-        if emailLogin.text == "" || passwordLogin.text == ""{
-            showMsg("請輸入email和密碼")
-        }
-        Auth.auth().signIn(withEmail: emailLogin.text!, password: passwordLogin.text!) { (user, error) in
-            if error != nil {
-                self.showMsg((error?.localizedDescription)!)
-                return
-            }
-            // 註冊成功並顯示已登入
-            self.MainView()
-        }
-    }
-    
-    func logout() {
-        if Auth.auth().currentUser == nil {
-            showMsg("未登入")
-        }
-        do{
-           try Auth.auth().signOut()
-            showMsg("登出成功")
-            
-        }catch let signOutError as NSError {
-            showMsg(signOutError.localizedDescription)
-        }
-        
-    }
-    
-    func closeKeyboard() {
-        view.endEditing(true)
-    }
-    
-    func showMsg(_ message: String) {
-        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
-        
-        let cancel = UIAlertAction(title: "確定", style: .default, handler: nil)
-        
-        alertController.addAction(cancel)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func MainView() {
-         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView"){
+    func presentViewController(viewControllerID:String) {
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: viewControllerID){
             self.present(viewController, animated: true, completion: nil)
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //GIDSignIn.sharedInstance().uiDelegate = self
-        //GIDSignIn.sharedInstance().signInSilently()
-        // Do any additional setup after loading the view.
+    func showMsg(_ message: String) {
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "確定", style: .default, handler: nil)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
+
+
