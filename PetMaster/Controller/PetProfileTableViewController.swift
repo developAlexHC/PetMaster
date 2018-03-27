@@ -42,16 +42,54 @@ class PetProfileTableViewController: UITableViewController {
         }
     }
     
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navigation = segue.destination as? UINavigationController {
-            if let serviceTypeTVC = navigation.topViewController as? ServiceTypeTableViewController {
-                guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
-                serviceTypeTVC.cellTag = indexPath
-            }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: propertyKey.beautySegue, sender: nil)
+        case 1:
+            performSegue(withIdentifier: propertyKey.medicineSegue, sender: nil)
+        case 2:
+            performSegue(withIdentifier: propertyKey.hospitalSegue, sender: nil)
+        case 3:
+            performSegue(withIdentifier: propertyKey.otherSegue, sender: nil)
+        default:
+            break
         }
-        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+
+        if segue.identifier == propertyKey.beautySegue {
+            if let navigation = segue.destination as? UINavigationController {
+                if let beautyTypeVC = navigation.topViewController as? BeautyTypeViewController {
+                    guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
+                    beautyTypeVC.cellTag = indexPath
+                }
+            }
+        }else if segue.identifier == propertyKey.medicineSegue {
+            if let navigation = segue.destination as? UINavigationController {
+                if let medicineTypeVC = navigation.topViewController as? MedicineTypeViewController {
+                    guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
+                    medicineTypeVC.celltag = indexPath
+                }
+            }
+
+        }else if segue.identifier == propertyKey.hospitalSegue{
+            if let navigation = segue.destination as? UINavigationController{
+                if let hospitalTypeVC = navigation.topViewController as? HospitalTypeViewController {
+                    guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
+                    hospitalTypeVC.cellTag = indexPath
+                }
+            }
+        }else{
+            if let navigation = segue.destination as? UINavigationController {
+                if let otherTypeVC = navigation.topViewController as? OtherTypeViewController {
+                    guard let indexPath = tableView.indexPathForSelectedRow?.row else {return}
+                    otherTypeVC.cellTag = indexPath
+                }
+            }
+        }
+   }
 
 }

@@ -16,14 +16,14 @@ extension AddPet_TableViewController {
         
         if pet_name.isEmpty && pet_gender.isEmpty && pet_type.isEmpty && pet_Breed.isEmpty && pet_color.isEmpty && pet_born.isEmpty {
             showMsg("欄位不得空白")
-        }else{ 
+        }else{
+            
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
             //upload pet image
             let petImageName = NSUUID().uuidString
-            let storageRef = Storage.storage().reference().child("PetImage").child("\(petImageName).png")
-            guard let uploadData = UIImagePNGRepresentation(self.petImageView.image!) else { return }
-            
+            let storageRef = Storage.storage().reference().child("PetImage").child("\(petImageName).jpg")
+            guard let uploadData = UIImageJPEGRepresentation(self.petImageView.image!, 0.1) else {return}
             storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
                 if error != nil {
                     print("putdata error:\(error!)")
@@ -31,16 +31,28 @@ extension AddPet_TableViewController {
                 
                 guard let petProfileImageUrl = metaData?.downloadURL()?.absoluteString else {return}
                 
-                let parameters = ["petName"     : pet_name  ,
-                                  "petGender"   : pet_gender,
-                                  "petType"     : pet_type  ,
-                                  "petBreed"    : pet_Breed ,
-                                  "petColor"    : pet_color ,
-                                  "petBorn"     : pet_born  ,
-                                  "petImage"    : petProfileImageUrl ]
-                
-                self.uploadPetProfileIntoDatabaseWithUID(uid: uid, parameters: parameters)
-                
+                //upload background
+                let petBackgroungImage = NSUUID().uuidString
+                let storageRefPetBackground = Storage.storage().reference().child("petBackground").child("\(petBackgroungImage).jpg")
+                guard let uploadPetBackground = UIImageJPEGRepresentation(self.petBackgroundImage.image!, 0.2) else {return}
+                storageRefPetBackground.putData(uploadPetBackground, metadata: nil, completion: { (matadataBackground, err) in
+                    if err != nil {
+                        print(err!)
+                    }
+                    guard let petBackgroundUrl = matadataBackground?.downloadURL()?.absoluteString else {return}
+                    
+                    print("url:\(petBackgroundUrl)")
+                    let parameters = ["petName"     : pet_name  ,
+                                      "petGender"   : pet_gender,
+                                      "petType"     : pet_type  ,
+                                      "petBreed"    : pet_Breed ,
+                                      "petColor"    : pet_color ,
+                                      "petBorn"     : pet_born  ,
+                                      "petImage"    : petProfileImageUrl,
+                                      "petBackground": petBackgroundUrl ]
+                    
+                    self.uploadPetProfileIntoDatabaseWithUID(uid: uid, parameters: parameters)
+                })
             }
         }
     }
@@ -88,6 +100,7 @@ extension AddPet_TableViewController {
         present(addPhoto, animated: true, completion: nil)
     }
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selectedImageFromPicker: UIImage?
         
@@ -98,9 +111,14 @@ extension AddPet_TableViewController {
             selectedImageFromPicker = originImage
         }
         
-        if let selectedImage = selectedImageFromPicker {
-            petImageView.image = selectedImage
+        guard let selectedImage = selectedImageFromPicker else { return }
+        if imagePiked == 0{
+            petBackgroundImage.image = selectedImage
+        }else if imagePiked == 1{
+             petImageView.image = selectedImage
         }
+       
+        
         
         dismiss(animated: true, completion: nil)
     }

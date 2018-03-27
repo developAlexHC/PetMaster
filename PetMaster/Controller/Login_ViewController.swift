@@ -76,7 +76,6 @@ class Login_ViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error != nil {
-                print(error)
                 return
             }
             

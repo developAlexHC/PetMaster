@@ -30,6 +30,9 @@ class Setting_ViewController: UIViewController {
             showMsg(signOutError.localizedDescription)
         }
         
+        
+
+        
     }
     
  

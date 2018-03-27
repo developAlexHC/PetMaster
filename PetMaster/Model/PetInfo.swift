@@ -20,6 +20,7 @@ struct PetInfo {
         var petBorn:String
         var petIndex:String?
         var petImage:String?
+        var petBackgroundImage:String?
     
     
     init?(petID:String, dict:[String:Any]) {
@@ -30,7 +31,8 @@ struct PetInfo {
             let petBreed = dict["petBreed"] as? String,
             let perColor = dict["petColor"] as? String,
             let petBorn = dict["petBorn"] as? String,
-            let petImage = dict["petImage"] as? String else { return nil}
+            let petImage = dict["petImage"] as? String,
+            let petBackgroundImage = dict["petBackground"] as? String else { return nil}
         
         self.petName = petName
         self.petGender = petGender
@@ -39,6 +41,7 @@ struct PetInfo {
         self.perColor = perColor
         self.petBorn = petBorn
         self.petImage = petImage
+        self.petBackgroundImage = petBackgroundImage
     }
 }
 

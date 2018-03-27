@@ -26,8 +26,28 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         checkUserIsLogin()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        databaseLoadData()
+//        checkUserIsLogin()
+//    }
+//    
     
     @IBAction func logout(_ sender: Any) {
+        handleLogout()
+    }
+    
+
+    
+    func checkUserIsLogin(){
+        if Auth.auth().currentUser?.uid == nil{
+          handleLogout()
+        }
+        fetchUserSetTitle()
+    }
+    
+    
+    func handleLogout() {
         
         do{
             try Auth.auth().signOut()
@@ -37,21 +57,12 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         }
         self.user.clearAll()
         self.pets.removeAll()
-        
-        
         let loginController = Login_ViewController()
         loginController.homeController = self
-        presentViewController(viewControllerID: propertyKey.loginview)
+        performSegue(withIdentifier: "loginSegue", sender: self)
+        
     }
     
-
-    
-    func checkUserIsLogin(){
-        if Auth.auth().currentUser?.uid == nil{
-          presentViewController(viewControllerID: propertyKey.loginview)
-        }
-        fetchUserSetTitle()
-    }
     
     
     func fetchUserSetTitle(){
@@ -95,8 +106,20 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: propertyKey.petCell, for: indexPath) as? Pet_CollectionViewCell else {fatalError("Error")}
         
         cell.pet_Image_Cell.clipsToBounds = true
-        cell.pet_Image_Cell.layer.cornerRadius = 95
-        cell.viewBackground.layer.cornerRadius = 30
+        cell.pet_Image_Cell.layer.cornerRadius = 50
+        
+        cell.viewBackground.layer.shadowOffset = CGSize(width: 3, height: 5)
+        cell.viewBackground.layer.shadowOpacity = 0.7
+        cell.viewBackground.layer.shadowRadius = 4
+        cell.viewBackground.layer.shadowColor = UIColor(red: 44.0/255.0, green: 62.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
+        
+        cell.viewBackground.layer.cornerRadius = 8
+        cell.viewBackground.layer.borderWidth = 1
+        cell.viewBackground.layer.borderColor = UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1).cgColor
+        
+        cell.petBackgroundImage.image = UIImage(named: "IMG_3350")
+        cell.petBackgroundImage.layer.cornerRadius = 8
+        cell.petBackgroundImage.contentMode = .scaleAspectFill
         
         page.numberOfPages = pets.count
 
@@ -105,10 +128,15 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell.pet_gender_Cell.image = UIImage(named: "male")
         cell.pet_Breed_Cell.text = pet.petBreed
         
-        
+    
         if let petImageURL = pet.petImage {
             cell.pet_Image_Cell.loadImageUsingCacheWithUrlString(urlString: petImageURL)
+            print(petImageURL)
+        }
 
+        if let petBackgroundURL = pet.petBackgroundImage {
+            cell.petBackgroundImage.loadImageUsingCacheWithUrlString(urlString: petBackgroundURL)
+            print(petBackgroundURL)
         }
         return cell
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class Pet_CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var petBackgroundImage: UIImageView!
     @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var pet_Image_Cell: UIImageView!
     @IBOutlet weak var pet_Name_Cell: UILabel!
@@ -17,5 +18,7 @@ class Pet_CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pet_Breed_Cell: UILabel!
     @IBOutlet weak var pet_Age_Cell: UILabel!
     @IBOutlet weak var pet_Birth_Cell: UILabel!
+    
+    
     
 }

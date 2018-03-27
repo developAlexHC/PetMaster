@@ -18,6 +18,7 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     var genderPicker = UIPickerView()
     var birthDatePicker = UIDatePicker()
     var pet = [PetInfo]()
+    var imagePiked = 0
     
     @IBOutlet weak var petName_TextField: UITextField!
     @IBOutlet weak var petGender_TextField: UITextField!
@@ -26,11 +27,20 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     @IBOutlet weak var petColor_TextField: UITextField!
     @IBOutlet weak var petBirthday_TextField: UITextField!
     @IBOutlet weak var petImageView: UIImageView!
+    @IBOutlet weak var petBackgroundImage: UIImageView!
     
-    
-    @IBAction func selectedPetImage(_ sender: UITapGestureRecognizer) {
+    @IBAction func selectPetBackgroundButton(_ sender: UIButton) {
+        imagePiked = sender.tag
+        print("background")
         handleSelectPetProfileImage()
     }
+    
+    @IBAction func selectPetImageButton(_ sender: UIButton) {
+        imagePiked = sender.tag
+        print(imagePiked)
+        handleSelectPetProfileImage()
+    }
+
     
     @IBAction func doneButton(_ sender: Any) {
         uploadPetProgileFromDoneButton()
@@ -47,7 +57,7 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     
     func setPetImage() {
         petImageView.isUserInteractionEnabled = true
-        petImageView.image = #imageLiteral(resourceName: "Dowmilk")
+       // petImageView.image = #imageLiteral(resourceName: "dog")
         
     }
     override func viewDidLoad() {
