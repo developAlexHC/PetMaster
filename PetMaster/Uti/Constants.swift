@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 var CURRRNT_USER : User?
 
@@ -30,3 +31,18 @@ var itemType = [["洗澡", "美容", "造型", "Spa", "藥浴", "其他項目"],
                ["外傷","發燒","發抖","便秘","腹瀉","嘔吐","流鼻涕","流口水","食慾不振","呼吸困難","飲水障礙","抓頭/抓耳","鼻子乾燥/發熱","皮膚搔癢"]
 ]
 
+
+
+extension UITextField {
+    
+    func underlined(){
+        let border = CALayer()
+        let width = CGFloat(1.0) // 底線寬度
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height) // 設定外框位置及寬高
+        border.borderWidth = width // 設定外框的粗細
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true // 將多出來的外誆遮掉
+    }
+    
+}

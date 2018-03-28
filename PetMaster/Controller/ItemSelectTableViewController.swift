@@ -12,13 +12,14 @@ class ItemSelectTableViewController: UITableViewController {
     
     var tag:Int?
     var segmentedIndex:Int?
+    var itemSelect:[Int:String] = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayAsString()
-    }
     
-    func arrayAsString(){
-        //print(itemType[tag!])
+    }
+
+    @IBAction func checkButton(_ sender: Any) {
+        print(itemSelect)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,8 +40,7 @@ class ItemSelectTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "typeCell", for: indexPath) as? ItemSelectTableViewCell{
-
-            //cell.itemLabel.text = "balabala"
+            
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = UIColor.white
             } else {
@@ -49,25 +49,37 @@ class ItemSelectTableViewController: UITableViewController {
             
             if segmentedIndex == 0 || segmentedIndex == 1{
                 if let item = itemType[tag!][segmentedIndex!] as? Array<String>{
-                     cell.itemLabel.text = item[indexPath.row] as? String
+                    cell.itemLabel.text = item[indexPath.row] as? String
                 }
-               
             }else{
                 let item = itemType[tag!]
                 cell.itemLabel.text = item[indexPath.row] as? String
-                
             }
-        
-            
-            
-            //let test = beautyType[indexPath.row]
-
-    
             return cell
         }else{
             let cell = UITableViewCell()
             return cell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            itemSelect.removeValue(forKey: indexPath.row)
+        }else{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            
+            if segmentedIndex == 0 || segmentedIndex == 1{
+                if let item = itemType[tag!][segmentedIndex!] as? Array<String>{
+                    itemSelect[indexPath.row] = item[indexPath.row] as? String
+                }
+            }else{
+                let item = itemType[tag!]
+                itemSelect[indexPath.row] = item[indexPath.row] as? String
+            }
+            
+        }
+        print(itemSelect)
     }
 
 }
