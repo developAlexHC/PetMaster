@@ -12,7 +12,7 @@ extension AddPet_TableViewController {
     
     func uploadPetProgileFromDoneButton() {
         
-        guard let pet_name = petName_TextField.text, let pet_gender = petBirthday_TextField.text, let pet_type = petType_TextField.text, let pet_Breed = petBreed_TextField.text, let pet_color = petColor_TextField.text,let pet_born = petBirthday_TextField.text else { return }
+        guard let pet_name = petName_TextField.text, let pet_gender = petGender_TextField.text, let pet_type = petType_TextField.text, let pet_Breed = petBreed_TextField.text, let pet_color = petColor_TextField.text,let pet_born = petBirthday_TextField.text else { return }
         
         if pet_name.isEmpty && pet_gender.isEmpty && pet_type.isEmpty && pet_Breed.isEmpty && pet_color.isEmpty && pet_born.isEmpty {
             showMsg("欄位不得空白")

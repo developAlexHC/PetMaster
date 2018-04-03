@@ -34,7 +34,7 @@ class PetProfileTableViewController: UITableViewController {
             cell.typeTitle.text = "➕添加\(petServiceType.title)紀錄"
             cell.typeImage.image = UIImage(named: "\(petServiceType.titleENG)")
             cell.buttonBackgroundColor.backgroundColor = UIColor(red: CGFloat(petServiceType.Red)/255, green: CGFloat(petServiceType.Green)/255, blue: CGFloat(petServiceType.Blue)/255, alpha: 0.4)
-            
+            cell.alertButton.addTarget(self, action: #selector(setAlert), for: .touchUpInside)
             return cell
         }else{
             let cell = UITableViewCell()
@@ -42,6 +42,21 @@ class PetProfileTableViewController: UITableViewController {
         }
     }
     
+    @objc func setAlert(){
+        print("123")
+//        switch index.row {
+//        case 0:
+//            print("0")
+//        case 1:
+//            print("1")
+//        case 2:
+//            print("2")
+//        case 3:
+//            print("3")
+//        default:
+//            print("nothing")
+//        }
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:

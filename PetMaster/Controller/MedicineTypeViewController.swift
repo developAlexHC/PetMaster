@@ -22,7 +22,8 @@ class MedicineTypeViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var buttonView: [UIButton]!
     @IBOutlet weak var medicineStack: UIStackView!
     @IBOutlet weak var vaccineStack: UIStackView!
-    
+    @IBOutlet var medicineItemLabels: [UILabel]!
+    @IBOutlet var vaccineItemLabels: [UILabel]!
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -42,19 +43,19 @@ class MedicineTypeViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func medicineButton(_ sender: Any) {
-        //performSegue(withIdentifier: "MedicineItemSegue", sender: self)
+        itemValue.removeAll()
     }
     
     @IBAction func vaccineButton(_ sender: Any) {
-        //performSegue(withIdentifier: "VaccineItemSegue", sender: self)
-        
+        itemValue.removeAll()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setNavTitleWithRGB(cellTag: celltag!, r: celltag!, g: celltag!, b: celltag!)
-        
+        let notificationName = Notification.Name("GetUpdateNoti")
+        NotificationCenter.default.addObserver(self, selector: #selector(getUpdateNoti(noti:)), name: notificationName, object: nil)
     }
 
 
@@ -66,6 +67,71 @@ class MedicineTypeViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    @objc func getUpdateNoti(noti:Notification) {
+        //接收編輯頁面回傳的資訊
+        item = noti.userInfo!["PASS"] as! [Int : String]
+        
+        for value in item.values{
+            itemValue.append(value)
+        }
+        print(itemValue)
+        updateItemLabel()
+    }
+    
+    func updateItemLabel(){
+        if handleMedicineVaccine.selectedSegmentIndex == 0{
+            switch itemValue.count {
+            case 1:
+                medicineItemLabels[0].text = itemValue[0]
+                medicineItemLabels[0].isHidden = false
+                medicineItemLabels[1].isHidden = true
+                medicineItemLabels[2].isHidden = true
+            case 2:
+                medicineItemLabels[0].text = itemValue[0]
+                medicineItemLabels[1].text = itemValue[1]
+                medicineItemLabels[0].isHidden = false
+                medicineItemLabels[1].isHidden = false
+                medicineItemLabels[2].isHidden = true
+            case 3:
+                medicineItemLabels[0].text = itemValue[0]
+                medicineItemLabels[1].text = itemValue[1]
+                medicineItemLabels[2].text = itemValue[2]
+                medicineItemLabels[0].isHidden = false
+                medicineItemLabels[1].isHidden = false
+                medicineItemLabels[2].isHidden = false
+            default:
+                medicineItemLabels[0].isHidden = true
+                medicineItemLabels[1].isHidden = true
+                medicineItemLabels[2].isHidden = true
+            }
+        }else{
+            switch itemValue.count {
+            case 1:
+                vaccineItemLabels[0].text = itemValue[0]
+                vaccineItemLabels[0].isHidden = false
+                vaccineItemLabels[1].isHidden = true
+                vaccineItemLabels[2].isHidden = true
+            case 2:
+                vaccineItemLabels[0].text = itemValue[0]
+                vaccineItemLabels[1].text = itemValue[1]
+                vaccineItemLabels[0].isHidden = false
+                vaccineItemLabels[1].isHidden = false
+                vaccineItemLabels[2].isHidden = true
+            case 3:
+                vaccineItemLabels[0].text = itemValue[0]
+                vaccineItemLabels[1].text = itemValue[1]
+                vaccineItemLabels[2].text = itemValue[2]
+                vaccineItemLabels[0].isHidden = false
+                vaccineItemLabels[1].isHidden = false
+                vaccineItemLabels[2].isHidden = false
+            default:
+                vaccineItemLabels[0].isHidden = true
+                vaccineItemLabels[1].isHidden = true
+                vaccineItemLabels[2].isHidden = true
+            }
+        }
+       
+    }
     
     func setDateTextField(){
         //Vaccine TextField
@@ -107,6 +173,7 @@ class MedicineTypeViewController: UIViewController,UITextFieldDelegate {
     @objc func cancelClick(){
         self.view.endEditing(true)
     }
+    
     func setNavTitleWithRGB(cellTag:Int, r:Int, g:Int, b:Int){
         navTitleImage.image = UIImage(named: "\(petService[cellTag].titleENG)-nav")
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(petService[cellTag].Red)/255, green: CGFloat(petService[cellTag].Green)/255, blue:CGFloat(petService[cellTag].Blue)/255, alpha: 1)

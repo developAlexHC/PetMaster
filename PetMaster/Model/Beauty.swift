@@ -9,8 +9,8 @@
 import Foundation
 
 struct beauty {
-    var beautyItem: [BeautyType]
-    var date: Date
+    var beautyItem:[String]
+    var date: String
     var memo: String
 }
 

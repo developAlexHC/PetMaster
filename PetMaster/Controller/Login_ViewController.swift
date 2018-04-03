@@ -62,9 +62,11 @@ class Login_ViewController: UIViewController {
                 return
             }
             // 註冊成功並顯示已登入
+            
+            print( self.homeController?.fetchUserSetTitle())
             self.homeController?.fetchUserSetTitle()
             self.dismiss(animated: true, completion: nil)
-
+            
         }
     }
     

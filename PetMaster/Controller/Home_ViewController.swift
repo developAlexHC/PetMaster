@@ -22,23 +22,19 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        databaseLoadData()
+ //       databaseLoadData()
         checkUserIsLogin()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        databaseLoadData()
-//        checkUserIsLogin()
-//    }
-//    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        checkUserIsLogin()
+    }
+    
     
     @IBAction func logout(_ sender: Any) {
         handleLogout()
     }
-    
-
-    
     func checkUserIsLogin(){
         if Auth.auth().currentUser?.uid == nil{
           handleLogout()
@@ -46,9 +42,7 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         fetchUserSetTitle()
     }
     
-    
     func handleLogout() {
-        
         do{
             try Auth.auth().signOut()
             print("signout")
@@ -63,10 +57,7 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         
     }
     
-    
-    
     func fetchUserSetTitle(){
-        print("fetch")
         guard let uid = Auth.auth().currentUser?.uid else {return}
         FirebaseService.share.userRenfence.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             //print(snapshot)
@@ -77,9 +68,10 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
                 self.navigationItem.title = self.user.userName
             }
         })
+        collectionView.reloadData()
+        databaseLoadData()
 
     }
-    
     
     func databaseLoadData() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -91,11 +83,24 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         }
     }
 
+    func calcAge(birthday: String) -> Int {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy/MM/dd/"
+        let birthdayDate = dateFormater.date(from: birthday)
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .chinese)
+        let now = Date()
+        let calcAge = calendar.components(.year, from: birthdayDate!, to: now, options: [])
+        let age = calcAge.year
+        return age!
+    }
+    
     func presentViewController(viewControllerID:String) {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: viewControllerID) else {return}
             self.present(viewController, animated: true, completion: nil)
     }
 
+
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         page.numberOfPages = pets.count
         page.isHidden = !(pets.count > 1)
@@ -125,18 +130,22 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
 
         let pet = pets[indexPath.row]
         cell.pet_Name_Cell.text = pet.petName
-        cell.pet_gender_Cell.image = UIImage(named: "male")
-        cell.pet_Breed_Cell.text = pet.petBreed
         
-    
+        cell.pet_Breed_Cell.text = pet.petBreed
+        cell.pet_Age_Cell.text = "\(calcAge(birthday: pet.petBorn))歲"
+        cell.pet_Birth_Cell.text = pet.petBorn
+        
+        if pet.petGender == "男生" {
+            cell.pet_gender_Cell.image = UIImage(named:"male")
+        }else {
+            cell.pet_gender_Cell.image = UIImage(named:"female")
+        }
         if let petImageURL = pet.petImage {
             cell.pet_Image_Cell.loadImageUsingCacheWithUrlString(urlString: petImageURL)
-            print(petImageURL)
         }
 
         if let petBackgroundURL = pet.petBackgroundImage {
             cell.petBackgroundImage.loadImageUsingCacheWithUrlString(urlString: petBackgroundURL)
-            print(petBackgroundURL)
         }
         return cell
     }
@@ -155,12 +164,9 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
             let petCell = sender as! Pet_CollectionViewCell
             guard let indexPath = self.collectionView.indexPath(for: petCell) else {return}
             petProfileVC.petProfile = pets[indexPath.row]
-            print(pets[indexPath.row])
             
         }
     }
 
 }
-
-
 

@@ -119,7 +119,9 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
         
         //done button for toolbar
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([done], animated: false)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        toolbar.setItems([spaceButton,done], animated: false)
         
         petBirthday_TextField.inputAccessoryView = toolbar
         petBirthday_TextField.inputView = birthDatePicker
@@ -132,9 +134,10 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     @objc func donePressed() {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy年M月dd日"
+        formatter.dateFormat = "yyyy/MM/dd"
         let dateString = formatter.string(from: birthDatePicker.date)
-        
+        let dateFromTime = formatter.date(from: "2001/01/01")
+        birthDatePicker.minimumDate = dateFromTime
         petBirthday_TextField.text = "\(dateString)"
         petGender_TextField.text = "\((petGender_TextField.text)!)"
         self.view.endEditing(true)

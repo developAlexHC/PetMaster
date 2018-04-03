@@ -12,14 +12,18 @@ class ItemSelectTableViewController: UITableViewController {
     
     var tag:Int?
     var segmentedIndex:Int?
-    var itemSelect:[Int:String] = [:]
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
     
     }
 
     @IBAction func checkButton(_ sender: Any) {
-        print(itemSelect)
+        let notificationName = Notification.Name("GetUpdateNoti")
+        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: ["PASS":itemSelect])
+        navigationController?.popToRootViewController(animated: true)
+        itemSelect.removeAll()
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,22 +67,26 @@ class ItemSelectTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
-            itemSelect.removeValue(forKey: indexPath.row)
-        }else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            
-            if segmentedIndex == 0 || segmentedIndex == 1{
-                if let item = itemType[tag!][segmentedIndex!] as? Array<String>{
+        if itemSelect.count < 3{
+            if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
+                tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+                itemSelect.removeValue(forKey: indexPath.row)
+            }else{
+                tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+                if segmentedIndex == 0 || segmentedIndex == 1{
+                    if let item = itemType[tag!][segmentedIndex!] as? Array<String>{
+                        itemSelect[indexPath.row] = item[indexPath.row] as? String
+                    }
+                }else{
+                    let item = itemType[tag!]
                     itemSelect[indexPath.row] = item[indexPath.row] as? String
                 }
-            }else{
-                let item = itemType[tag!]
-                itemSelect[indexPath.row] = item[indexPath.row] as? String
             }
-            
+        }else{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            itemSelect.removeValue(forKey: indexPath.row)
         }
+        
         print(itemSelect)
     }
 
