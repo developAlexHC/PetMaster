@@ -31,13 +31,13 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     
     @IBAction func selectPetBackgroundButton(_ sender: UIButton) {
         imagePiked = sender.tag
-        print("background")
+        //print("background")
         handleSelectPetProfileImage()
     }
     
     @IBAction func selectPetImageButton(_ sender: UIButton) {
         imagePiked = sender.tag
-        print(imagePiked)
+        //print(imagePiked)
         handleSelectPetProfileImage()
     }
 

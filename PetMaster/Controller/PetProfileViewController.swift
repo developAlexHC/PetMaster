@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PetProfileViewController: UIViewController {
    
@@ -14,14 +15,29 @@ class PetProfileViewController: UIViewController {
     var petProfile:PetInfo?
 
     @IBOutlet weak var petProgileImage: UIImageView!
-    @IBAction func alertButton(_ sender: Any) {
-        
+
+    @IBAction func deleteButton(_ sender: Any) {
+        let alert = UIAlertController(title: "提示", message: "您確定要刪除寵物嗎?", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "確定", style: .default) { (alert) in
+            print("12345")
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelButton  = UIAlertAction(title: "取消", style: .destructive) { (alert) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+        present(alert, animated: true, completion: nil)
     }
     
+    func deletePet(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        FirebaseService.share.userRenfence.child(uid).child("pets")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setPetProfileImage()
-       
+        
     }
     
     func setPetProfileImage() {

@@ -41,7 +41,6 @@ extension AddPet_TableViewController {
                     }
                     guard let petBackgroundUrl = matadataBackground?.downloadURL()?.absoluteString else {return}
                     
-                    print("url:\(petBackgroundUrl)")
                     let parameters = ["petName"     : pet_name  ,
                                       "petGender"   : pet_gender,
                                       "petType"     : pet_type  ,
@@ -63,7 +62,7 @@ extension AddPet_TableViewController {
                 print("error")
                 return
             }
-            print(ref.description())
+            print("autoid:\(ref.childByAutoId())")
             let alert = UIAlertController(title: "Done", message:"新增完成", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Alert) in
                 self.dismiss(animated: true, completion: nil)

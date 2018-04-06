@@ -8,6 +8,8 @@
 
 import Foundation
 
+var recordBeauty = [beauty]()
+
 struct beauty {
     var beautyItem:[String]
     var date: String

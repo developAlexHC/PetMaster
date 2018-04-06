@@ -28,6 +28,7 @@
 		FA513FC7204846D400E36A72 /* AddPet_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */; };
 		FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */; };
 		FA574687204938E300D3FFAF /* Home_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574686204938E300D3FFAF /* Home_ViewController.swift */; };
+		FA8524FB207764940027F9A0 /* HomeControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */; };
 		FA967D612052C1D700385195 /* Setting_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D602052C1D700385195 /* Setting_ViewController.swift */; };
 		FA967D6320539C1900385195 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D6220539C1900385195 /* User.swift */; };
 		FA967D652056676600385195 /* PropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D642056676600385195 /* PropertyKey.swift */; };
@@ -71,6 +72,7 @@
 		FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPet_TableViewController.swift; sourceTree = "<group>"; };
 		FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA574686204938E300D3FFAF /* Home_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_ViewController.swift; sourceTree = "<group>"; };
+		FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerExtension.swift; sourceTree = "<group>"; };
 		FA967D602052C1D700385195 /* Setting_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_ViewController.swift; sourceTree = "<group>"; };
 		FA967D6220539C1900385195 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA967D642056676600385195 /* PropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKey.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3323FC205D2D9C0056CF7D /* UIImageViewCacheExtension.swift */,
+				FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */,
 				FA3323D0205A60950056CF7D /* AddPetControllerExtension.swift */,
 				FA332402205D4CEA0056CF7D /* BeautyTypeViewExtension.swift */,
 			);
@@ -404,6 +407,7 @@
 				FACA89792064D78A009DFCE8 /* ItemSelectTableViewController.swift in Sources */,
 				FA3323F1205C64AC0056CF7D /* PetProfileViewController.swift in Sources */,
 				FA332407206385140056CF7D /* BeautyTypeViewController.swift in Sources */,
+				FA8524FB207764940027F9A0 /* HomeControllerExtension.swift in Sources */,
 				FA967D612052C1D700385195 /* Setting_ViewController.swift in Sources */,
 				FA3323D1205A60950056CF7D /* AddPetControllerExtension.swift in Sources */,
 				FA417994206E1FBB000E102E /* ItemConstants.swift in Sources */,

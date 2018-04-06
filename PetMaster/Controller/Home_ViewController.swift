@@ -12,7 +12,7 @@ import Firebase
 class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, UIScrollViewDelegate{
 
 
-    @IBAction func unwindToFirstPage(segue: UIStoryboardSegue) { }
+
     @IBOutlet weak var page: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -35,65 +35,12 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
     @IBAction func logout(_ sender: Any) {
         handleLogout()
     }
-    func checkUserIsLogin(){
-        if Auth.auth().currentUser?.uid == nil{
-          handleLogout()
-        }
-        fetchUserSetTitle()
-    }
     
-    func handleLogout() {
-        do{
-            try Auth.auth().signOut()
-            print("signout")
-        }catch let signOutError as NSError {
-            print(signOutError.localizedDescription)
-        }
-        self.user.clearAll()
-        self.pets.removeAll()
-        let loginController = Login_ViewController()
-        loginController.homeController = self
-        performSegue(withIdentifier: "loginSegue", sender: self)
+    @IBAction func editButton(_ sender: Any) {
         
     }
     
-    func fetchUserSetTitle(){
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        FirebaseService.share.userRenfence.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            //print(snapshot)
-            if let dict = snapshot.value as? [String: Any]{
-                self.user.userName = dict["name"] as? String
-                self.user.userEmail = dict["email"] as? String
-                self.user.uid = snapshot.key
-                self.navigationItem.title = self.user.userName
-            }
-        })
-        collectionView.reloadData()
-        databaseLoadData()
-
-    }
-    
-    func databaseLoadData() {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        FirebaseService.share.userRenfence.child(uid).child("pets").observe(DataEventType.value) { (snapshot) in
-            //print(snapshot)
-            guard let petsSnapshot = PetsSnapshot(snapshot: snapshot) else { return }
-            self.pets = petsSnapshot.pets
-            self.collectionView.reloadData()
-        }
-    }
-
-    func calcAge(birthday: String) -> Int {
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy/MM/dd/"
-        let birthdayDate = dateFormater.date(from: birthday)
-        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .chinese)
-        let now = Date()
-        let calcAge = calendar.components(.year, from: birthdayDate!, to: now, options: [])
-        let age = calcAge.year
-        return age!
-    }
-    
+   
     func presentViewController(viewControllerID:String) {
         guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: viewControllerID) else {return}
             self.present(viewController, animated: true, completion: nil)
