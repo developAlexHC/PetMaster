@@ -48,7 +48,8 @@ extension AddPet_TableViewController {
                                       "petColor"    : pet_color ,
                                       "petBorn"     : pet_born  ,
                                       "petImage"    : petProfileImageUrl,
-                                      "petBackground": petBackgroundUrl ]
+                                      "petBackground": petBackgroundUrl
+                                     ]
                     
                     self.uploadPetProfileIntoDatabaseWithUID(uid: uid, parameters: parameters)
                 })
@@ -57,12 +58,13 @@ extension AddPet_TableViewController {
     }
     
     func uploadPetProfileIntoDatabaseWithUID(uid:String, parameters:[String : Any]){
+        
         FirebaseService.share.userRenfence.child(uid).child("pets").childByAutoId().setValue(parameters) { (error, ref) in
             if error != nil {
                 print("error")
                 return
             }
-            print("autoid:\(ref.childByAutoId())")
+            
             let alert = UIAlertController(title: "Done", message:"新增完成", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Alert) in
                 self.dismiss(animated: true, completion: nil)

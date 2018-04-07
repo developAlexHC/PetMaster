@@ -53,7 +53,7 @@ extension Home_ViewController {
     func databaseLoadData() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         FirebaseService.share.userRenfence.child(uid).child("pets").observe(DataEventType.value) { (snapshot) in
-            //print(snapshot)
+            
             guard let petsSnapshot = PetsSnapshot(snapshot: snapshot) else { return }
             self.pets = petsSnapshot.pets
             self.collectionView.reloadData()
