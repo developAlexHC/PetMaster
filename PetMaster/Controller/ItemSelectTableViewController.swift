@@ -67,6 +67,9 @@ class ItemSelectTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if itemSelect.count < 3{
             if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
                 tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none

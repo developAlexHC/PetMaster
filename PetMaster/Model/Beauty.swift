@@ -16,13 +16,3 @@ struct beauty {
     var memo: String
 }
 
-
-
-enum BeautyType: String {
-    case bathe = "洗澡"
-    case beauty = "美容"
-    case modeling = "造型"
-    case spa = "Spa"
-    case MedicatedBath = "藥浴"
-    case other = "其他項目"
-}

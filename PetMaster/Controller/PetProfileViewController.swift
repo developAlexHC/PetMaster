@@ -41,6 +41,12 @@ class PetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setPetProfileImage()
+        //sendPetIDFromNoti()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        sendPetIDFromNoti()
     }
     
     func setPetProfileImage() {
@@ -48,7 +54,14 @@ class PetProfileViewController: UIViewController {
             petProgileImage.loadImageUsingCacheWithUrlString(urlString: petImageUrl)
         }
     }
-
+    
+    func sendPetIDFromNoti(){
+        guard let petID = petProfile?.petID else { return }
+        let noti = Notification.Name("GetPetprofile")
+        NotificationCenter.default.post(name: noti, object: nil, userInfo: ["petID":petID])
+        
+    }
+    
 }
 
 

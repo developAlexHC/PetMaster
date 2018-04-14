@@ -20,7 +20,7 @@
 		FA3323FB205C7F470056CF7D /* PetProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3323FA205C7F470056CF7D /* PetProfileTableViewController.swift */; };
 		FA3323FD205D2D9C0056CF7D /* UIImageViewCacheExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3323FC205D2D9C0056CF7D /* UIImageViewCacheExtension.swift */; };
 		FA3323FF205D47270056CF7D /* Beauty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3323FE205D47270056CF7D /* Beauty.swift */; };
-		FA332403205D4CEA0056CF7D /* BeautyTypeViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA332402205D4CEA0056CF7D /* BeautyTypeViewExtension.swift */; };
+		FA332403205D4CEA0056CF7D /* BeautyViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA332402205D4CEA0056CF7D /* BeautyViewExtension.swift */; };
 		FA332407206385140056CF7D /* BeautyTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA332406206385140056CF7D /* BeautyTypeViewController.swift */; };
 		FA417994206E1FBB000E102E /* ItemConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA417993206E1FBA000E102E /* ItemConstants.swift */; };
 		FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513F9A20481F4500E36A72 /* PetInfo.swift */; };
@@ -28,12 +28,13 @@
 		FA513FC7204846D400E36A72 /* AddPet_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */; };
 		FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */; };
 		FA574687204938E300D3FFAF /* Home_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574686204938E300D3FFAF /* Home_ViewController.swift */; };
+		FA6305F02081B3ED00AD4CEE /* MedicineViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6305EF2081B3ED00AD4CEE /* MedicineViewExtension.swift */; };
+		FA6305F22081B48B00AD4CEE /* HospitalViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6305F12081B48B00AD4CEE /* HospitalViewExtension.swift */; };
 		FA8524FB207764940027F9A0 /* HomeControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */; };
 		FA967D612052C1D700385195 /* Setting_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D602052C1D700385195 /* Setting_ViewController.swift */; };
 		FA967D6320539C1900385195 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D6220539C1900385195 /* User.swift */; };
 		FA967D652056676600385195 /* PropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D642056676600385195 /* PropertyKey.swift */; };
 		FA967D6C2057183200385195 /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA967D6B2057183200385195 /* GlobalFunction.swift */; };
-		FA9DCA5E2068E9A300E3B88E /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9DCA5D2068E9A300E3B88E /* item.swift */; };
 		FABCF33720517EC400045411 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCF33620517EC400045411 /* FirebaseService.swift */; };
 		FABCF33A20526ECC00045411 /* DatabaseSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCF33920526ECC00045411 /* DatabaseSnapshot.swift */; };
 		FACA89792064D78A009DFCE8 /* ItemSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA89782064D78A009DFCE8 /* ItemSelectTableViewController.swift */; };
@@ -64,7 +65,7 @@
 		FA3323FA205C7F470056CF7D /* PetProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA3323FC205D2D9C0056CF7D /* UIImageViewCacheExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewCacheExtension.swift; sourceTree = "<group>"; };
 		FA3323FE205D47270056CF7D /* Beauty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beauty.swift; sourceTree = "<group>"; };
-		FA332402205D4CEA0056CF7D /* BeautyTypeViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyTypeViewExtension.swift; sourceTree = "<group>"; };
+		FA332402205D4CEA0056CF7D /* BeautyViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyViewExtension.swift; sourceTree = "<group>"; };
 		FA332406206385140056CF7D /* BeautyTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyTypeViewController.swift; sourceTree = "<group>"; };
 		FA417993206E1FBA000E102E /* ItemConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemConstants.swift; sourceTree = "<group>"; };
 		FA513F9A20481F4500E36A72 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
@@ -72,12 +73,13 @@
 		FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPet_TableViewController.swift; sourceTree = "<group>"; };
 		FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA574686204938E300D3FFAF /* Home_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_ViewController.swift; sourceTree = "<group>"; };
+		FA6305EF2081B3ED00AD4CEE /* MedicineViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewExtension.swift; sourceTree = "<group>"; };
+		FA6305F12081B48B00AD4CEE /* HospitalViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalViewExtension.swift; sourceTree = "<group>"; };
 		FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerExtension.swift; sourceTree = "<group>"; };
 		FA967D602052C1D700385195 /* Setting_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_ViewController.swift; sourceTree = "<group>"; };
 		FA967D6220539C1900385195 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA967D642056676600385195 /* PropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKey.swift; sourceTree = "<group>"; };
 		FA967D6B2057183200385195 /* GlobalFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
-		FA9DCA5D2068E9A300E3B88E /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
 		FABCF33620517EC400045411 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		FABCF33920526ECC00045411 /* DatabaseSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSnapshot.swift; sourceTree = "<group>"; };
 		FACA89782064D78A009DFCE8 /* ItemSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectTableViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +131,9 @@
 				FA3323FC205D2D9C0056CF7D /* UIImageViewCacheExtension.swift */,
 				FA8524FA207764940027F9A0 /* HomeControllerExtension.swift */,
 				FA3323D0205A60950056CF7D /* AddPetControllerExtension.swift */,
-				FA332402205D4CEA0056CF7D /* BeautyTypeViewExtension.swift */,
+				FA332402205D4CEA0056CF7D /* BeautyViewExtension.swift */,
+				FA6305EF2081B3ED00AD4CEE /* MedicineViewExtension.swift */,
+				FA6305F12081B48B00AD4CEE /* HospitalViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -149,9 +153,8 @@
 				FA967D642056676600385195 /* PropertyKey.swift */,
 				FA967D6220539C1900385195 /* User.swift */,
 				FA513F9A20481F4500E36A72 /* PetInfo.swift */,
-				FA3323F6205C79E60056CF7D /* PetTypeService.swift */,
-				FA9DCA5D2068E9A300E3B88E /* item.swift */,
 				FA3323FE205D47270056CF7D /* Beauty.swift */,
+				FA3323F6205C79E60056CF7D /* PetTypeService.swift */,
 				FA3323F5205C79B90056CF7D /* FireBase */,
 			);
 			path = Model;
@@ -170,6 +173,7 @@
 		FABCF3382052626800045411 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FACDF4712043E697000CF551 /* Main.storyboard */,
 				FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */,
 				FA3196012067B39100BD2FA0 /* AddCellCollectionViewCell.swift */,
 				FA3323F2205C64EF0056CF7D /* PetProfileTableViewCell.swift */,
@@ -203,7 +207,6 @@
 				FA513F9C20482CD600E36A72 /* Model */,
 				FABCF3382052626800045411 /* View */,
 				FACDF48A2043F7C7000CF551 /* Controller */,
-				FACDF4712043E697000CF551 /* Main.storyboard */,
 				FACDF4772043E697000CF551 /* Assets.xcassets */,
 				FACDF4792043E697000CF551 /* LaunchScreen.storyboard */,
 				FACDF47C2043E697000CF551 /* Info.plist */,
@@ -265,7 +268,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Alex Hsieh";
 				TargetAttributes = {
 					FACDF4692043E696000CF551 = {
@@ -387,8 +390,9 @@
 				FA3196082067CD5700BD2FA0 /* OtherTypeViewController.swift in Sources */,
 				FA3323F3205C64EF0056CF7D /* PetProfileTableViewCell.swift in Sources */,
 				FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */,
+				FA6305F22081B48B00AD4CEE /* HospitalViewExtension.swift in Sources */,
 				FA3323FB205C7F470056CF7D /* PetProfileTableViewController.swift in Sources */,
-				FA332403205D4CEA0056CF7D /* BeautyTypeViewExtension.swift in Sources */,
+				FA332403205D4CEA0056CF7D /* BeautyViewExtension.swift in Sources */,
 				FACDF4872043F1E4000CF551 /* ForgetPassword_ViewController.swift in Sources */,
 				FA3196022067B39100BD2FA0 /* AddCellCollectionViewCell.swift in Sources */,
 				FA513FC7204846D400E36A72 /* AddPet_TableViewController.swift in Sources */,
@@ -397,10 +401,10 @@
 				FA513F9E20482CFC00E36A72 /* Constants.swift in Sources */,
 				FA574687204938E300D3FFAF /* Home_ViewController.swift in Sources */,
 				FA3323F7205C79E60056CF7D /* PetTypeService.swift in Sources */,
+				FA6305F02081B3ED00AD4CEE /* MedicineViewExtension.swift in Sources */,
 				FA967D6320539C1900385195 /* User.swift in Sources */,
 				FA3196062067CD3400BD2FA0 /* HospitalTypeViewController.swift in Sources */,
 				FABCF33A20526ECC00045411 /* DatabaseSnapshot.swift in Sources */,
-				FA9DCA5E2068E9A300E3B88E /* item.swift in Sources */,
 				FA967D652056676600385195 /* PropertyKey.swift in Sources */,
 				FACDF46E2043E697000CF551 /* AppDelegate.swift in Sources */,
 				FABCF33720517EC400045411 /* FirebaseService.swift in Sources */,
@@ -455,6 +459,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -462,6 +467,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -512,6 +518,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -519,6 +526,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

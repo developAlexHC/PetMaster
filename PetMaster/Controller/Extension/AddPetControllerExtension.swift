@@ -18,6 +18,7 @@ extension AddPet_TableViewController {
             showMsg("欄位不得空白")
         }else{
             
+            setLoadingScreen()
             guard let uid = Auth.auth().currentUser?.uid else { return }
             
             //upload pet image
@@ -64,7 +65,7 @@ extension AddPet_TableViewController {
                 print("error")
                 return
             }
-            
+            self.removeLoadingScreen()
             let alert = UIAlertController(title: "Done", message:"新增完成", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (Alert) in
                 self.dismiss(animated: true, completion: nil)
@@ -142,5 +143,32 @@ extension AddPet_TableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    private func setLoadingScreen() {
+        
+        // Sets the view which contains the loading text and the spinner
+        let width: CGFloat = 120
+        let height: CGFloat = 30
+        let x = (tableView.frame.width / 2) - (width / 2)
+        let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+        //loadingView.backgroundColor = UIColor.black
+        
+        // Sets spinner
+        spinner.activityIndicatorViewStyle = .gray
+        spinner.frame = CGRect(x: width/2-15, y: height/2-15, width: 30, height: 30)
+        spinner.startAnimating()
+        
+        // Adds text and spinner to the view
+        loadingView.addSubview(spinner)
+        tableView.addSubview(loadingView)
+    }
+    
+    private func removeLoadingScreen() {
+        
+        // Hides and stops the text and the spinner
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        
+    }
     
 }

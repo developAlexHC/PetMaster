@@ -20,6 +20,11 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     var pet = [PetInfo]()
     var imagePiked = 0
     
+    
+    let loadingView = UIView()
+    let spinner = UIActivityIndicatorView()
+    
+
     @IBOutlet weak var petName_TextField: UITextField!
     @IBOutlet weak var petGender_TextField: UITextField!
     @IBOutlet weak var petType_TextField: UITextField!
@@ -63,7 +68,6 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         genderPicker.dataSource = self
         genderPicker.delegate = self
         
@@ -71,6 +75,7 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
         createDatePiclker()
         textPlachHolder()
         setPetImage()
+        
     }
 
     
@@ -93,9 +98,6 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
         
     }
     //-----------------------------------------------------------
-
-    
-    
 
     
     func createPickerView(){
@@ -150,6 +152,8 @@ class AddPet_TableViewController: UITableViewController,UIImagePickerControllerD
         petColor_TextField.placeholder = "灰色,黃色,長毛,短毛..."
         
     }
+
+  
 
 
 }
