@@ -18,4 +18,5 @@ struct propertyKey {
     static let medicineSegue = "medicineSegue"
     static let hospitalSegue = "hospitalSegue"
     static let otherSegue = "otherSegue"
+    static let petHospitalCell = "petHospitalCell"
 }
