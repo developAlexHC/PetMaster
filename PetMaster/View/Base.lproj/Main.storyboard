@@ -2660,7 +2660,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WbW-XI-ghR" kind="relationship" relationship="rootViewController" id="ekS-Od-BGI"/>
+                        <segue destination="WbW-XI-ghR" kind="relationship" relationship="rootViewController" id="hE7-vr-Vvi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7o-JB-0md" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2671,50 +2671,46 @@
         <scene sceneID="Hwy-jt-Vw7">
             <objects>
                 <tableViewController id="WbW-XI-ghR" customClass="PetHospitalTableViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RJp-Hu-XcG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RJp-Hu-XcG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="petHospitalCell" rowHeight="110" id="WCR-EB-Sex" customClass="PetHospotalTableViewCell" customModule="PetMaster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="110"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="petHospitalCell" rowHeight="90" id="WCR-EB-Sex" customClass="PetHospotalTableViewCell" customModule="PetMaster" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WCR-EB-Sex" id="ANE-07-T56">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="水上動物醫院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQJ-wv-hHK">
-                                            <rect key="frame" x="21" y="11" width="166" height="29"/>
+                                            <rect key="frame" x="16" y="11" width="271" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="05-2602261" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7q-0k-LWk">
-                                            <rect key="frame" x="22" y="79" width="125" height="21"/>
+                                            <rect key="frame" x="16" y="61" width="125" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="嘉義縣水上鄉中山路2段998號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-hS-UVK">
-                                            <rect key="frame" x="22" y="48" width="232" height="21"/>
+                                            <rect key="frame" x="16" y="41" width="299" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHd-LF-QUT">
-                                            <rect key="frame" x="300" y="31" width="59" height="54"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="placeholder-1"/>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="gVZ-hS-UVK" id="XYV-xQ-hjB"/>
                                     <outlet property="nameLabel" destination="AQJ-wv-hHK" id="so7-kR-hlh"/>
                                     <outlet property="numberLabel" destination="M7q-0k-LWk" id="hD1-d5-OaX"/>
+                                    <segue destination="xbG-Ne-Q4y" kind="show" id="jk9-3a-ksd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2725,12 +2721,49 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Zl8-xg-e32">
-                        <barButtonItem key="rightBarButtonItem" image="placeholder" id="Qab-L5-I0G"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="placeholder" id="Qab-L5-I0G"/>
+                            <barButtonItem image="filter" id="0Ir-JU-08I"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OI8-1S-LCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="300" y="2819.6401799100454"/>
+        </scene>
+        <!--Hospital Location View Controller-->
+        <scene sceneID="4B7-J6-kJW">
+            <objects>
+                <viewController id="xbG-Ne-Q4y" customClass="HospitalLocationViewController" customModule="PetMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AGQ-Qe-BB5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mzc-uZ-GGM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xbG-Ne-Q4y" id="X98-Fj-5Rn"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QAq-EX-94J"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EtU-jh-RFd">
+                        <barButtonItem key="rightBarButtonItem" image="navigation" id="8a4-6z-ynZ">
+                            <connections>
+                                <action selector="navigationButton:" destination="xbG-Ne-Q4y" id="RQt-4T-BMB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="hospitalMapView" destination="Mzc-uZ-GGM" id="Ney-Uy-YdL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiZ-bK-SpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="2819.6401799100454"/>
         </scene>
     </scenes>
     <resources>
@@ -2743,12 +2776,13 @@
         <image name="dog-2" width="128" height="128"/>
         <image name="edit" width="21" height="21"/>
         <image name="exit" width="24" height="24"/>
+        <image name="filter" width="21" height="21"/>
         <image name="home" width="24" height="24"/>
         <image name="man" width="256" height="256"/>
+        <image name="navigation" width="21" height="21"/>
         <image name="petImageBackground" width="640" height="360"/>
         <image name="photo-camera" width="512" height="512"/>
         <image name="placeholder" width="21" height="21"/>
-        <image name="placeholder-1" width="32" height="32"/>
         <image name="settings" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>

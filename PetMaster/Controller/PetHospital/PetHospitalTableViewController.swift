@@ -8,18 +8,30 @@
 
 import UIKit
 
-class PetHospitalTableViewController: UITableViewController {
+class PetHospitalTableViewController: UITableViewController, UISearchResultsUpdating {
+
 
     var hospitalArray = [PetHospital]()
     let petHospitalUrlStr = "https://data.coa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=078&$top=1000&$skip=0"
+    var searchController: UISearchController!
+    var resultsController = UITableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         downloadHospital(urlstr: petHospitalUrlStr)
-        print(hospitalArray.count)
+        
+        self.searchController = UISearchController(searchResultsController: self.searchController)
+        self.tableView.tableHeaderView = self.searchController.searchBar
+        self.searchController.searchResultsUpdater = self
+        
+        resultsController.tableView.delegate = self
+        resultsController.tableView.dataSource = self
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
     func downloadHospital(urlstr:String) {
         guard let url = URL(string: urlstr) else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -29,55 +41,51 @@ class PetHospitalTableViewController: UITableViewController {
             guard let data = data else {return}
             do{
                 if let result = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] {
-                    for hospitalResult in result {
-                        guard let array = PetHospital(json: hospitalResult) else {return}
-                        self.hospitalArray.append(array)
+                    DispatchQueue.main.async {
+                        for hospitalResult in result {
+                            guard let array = PetHospital(json: hospitalResult) else {return}
+                            self.hospitalArray.append(array)
+                        }
+                        self.tableView.reloadData()
                     }
                 }
-               
             }catch{
                 
             }
         }
         task.resume()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return hospitalArray.count
-        
     }
     
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: propertyKey.petHospitalCell, for: indexPath)
-        cell.textLabel?.text = hospitalArray[indexPath.row].hospitalName
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: propertyKey.petHospitalCell, for: indexPath) as? PetHospotalTableViewCell {
+            let hospitalIndex = hospitalArray[indexPath.row]
+            cell.nameLabel.text = hospitalIndex.hospitalName
+            cell.addressLabel.text = hospitalIndex.hospitalAddress
+            cell.numberLabel.text = hospitalIndex.hospitalNumber
+            return cell
+        }else{
+            let cell = UITableViewCell()
+            return cell
+        }
     }
-
-
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let hospitalLocationVC = segue.destination as? HospitalLocationViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                hospitalLocationVC.hospitalAddress = hospitalArray[indexPath.row]
+            }
+        }
     }
-    */
 
 }

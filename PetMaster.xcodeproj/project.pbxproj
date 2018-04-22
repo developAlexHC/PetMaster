@@ -30,6 +30,8 @@
 		FA513F9B20481F4500E36A72 /* PetInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513F9A20481F4500E36A72 /* PetInfo.swift */; };
 		FA513F9E20482CFC00E36A72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513F9D20482CFC00E36A72 /* Constants.swift */; };
 		FA513FC7204846D400E36A72 /* AddPet_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */; };
+		FA53ECDA2089FAF500DCE501 /* HospitalLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53ECD92089FAF500DCE501 /* HospitalLocationViewController.swift */; };
+		FA53ECDC208A746900DCE501 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53ECDB208A746900DCE501 /* MapKit.framework */; };
 		FA574685204938B800D3FFAF /* Pet_CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */; };
 		FA574687204938E300D3FFAF /* Home_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA574686204938E300D3FFAF /* Home_ViewController.swift */; };
 		FA6305F02081B3ED00AD4CEE /* MedicineViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6305EF2081B3ED00AD4CEE /* MedicineViewExtension.swift */; };
@@ -78,6 +80,8 @@
 		FA513F9A20481F4500E36A72 /* PetInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfo.swift; sourceTree = "<group>"; };
 		FA513F9D20482CFC00E36A72 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA513FC6204846D400E36A72 /* AddPet_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPet_TableViewController.swift; sourceTree = "<group>"; };
+		FA53ECD92089FAF500DCE501 /* HospitalLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HospitalLocationViewController.swift; path = PetMaster/Controller/PetHospital/HospitalLocationViewController.swift; sourceTree = SOURCE_ROOT; };
+		FA53ECDB208A746900DCE501 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA574684204938B800D3FFAF /* Pet_CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet_CollectionViewCell.swift; sourceTree = "<group>"; };
 		FA574686204938E300D3FFAF /* Home_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_ViewController.swift; sourceTree = "<group>"; };
 		FA6305EF2081B3ED00AD4CEE /* MedicineViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewExtension.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA53ECDC208A746900DCE501 /* MapKit.framework in Frameworks */,
 				C12962E83023C671492D2374 /* Pods_PetMaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +122,7 @@
 		D0F3C95767A27846EAE7FEBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA53ECDB208A746900DCE501 /* MapKit.framework */,
 				0D877BD86FECB57E3954AF80 /* Pods_PetMaster.framework */,
 			);
 			name = Frameworks;
@@ -152,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				FA14ADD6208378AA00CD2900 /* PetHospitalTableViewController.swift */,
+				FA53ECD92089FAF500DCE501 /* HospitalLocationViewController.swift */,
 			);
 			path = PetHospital;
 			sourceTree = "<group>";
@@ -315,6 +322,11 @@
 					FACDF4692043E696000CF551 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -454,6 +466,7 @@
 				FA3323F1205C64AC0056CF7D /* PetProfileViewController.swift in Sources */,
 				FA332407206385140056CF7D /* BeautyTypeViewController.swift in Sources */,
 				FA8524FB207764940027F9A0 /* HomeControllerExtension.swift in Sources */,
+				FA53ECDA2089FAF500DCE501 /* HospitalLocationViewController.swift in Sources */,
 				FA967D612052C1D700385195 /* Setting_ViewController.swift in Sources */,
 				FA3323D1205A60950056CF7D /* AddPetControllerExtension.swift in Sources */,
 				FA417994206E1FBB000E102E /* ItemConstants.swift in Sources */,

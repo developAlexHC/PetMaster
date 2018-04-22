@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import FBSDKCoreKit
 //import GoogleSignIn
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -21,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Override point for customization after application launch.
         //加入firebase設定檔
         FirebaseApp.configure()
-        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
        // GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
