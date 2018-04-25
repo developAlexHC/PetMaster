@@ -8,7 +8,7 @@
 
 import Foundation
 
-   var hospitalArray = [PetHospital]()
+   //var hospitalArray = [PetHospital]()
 
 struct PetHospital {
     var hospitalCity: String

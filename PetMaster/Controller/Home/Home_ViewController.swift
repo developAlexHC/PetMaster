@@ -13,6 +13,7 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
 
 
 
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var page: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -24,6 +25,7 @@ class Home_ViewController: UIViewController,UICollectionViewDataSource,UICollect
         super.viewDidLoad()
  //       databaseLoadData()
         checkUserIsLogin()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

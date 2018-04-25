@@ -12,6 +12,7 @@ import CoreLocation
 
 class HospitalLocationViewController: UIViewController{
 
+    var allHospital:[PetHospital]?
     var hospitalAddress: PetHospital?
     var setNavigation:CLLocationCoordinate2D?
     var userLocationCoordinate:CLLocationCoordinate2D?
@@ -25,22 +26,24 @@ class HospitalLocationViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setMapView()
-        //getUserLocation()
+        getUserLocation()
+        navigationItem.title = hospitalAddress?.hospitalName
     }
     
+
     
     func getUserLocation() {
         userLocation = CLLocationManager()
         userLocation?.requestWhenInUseAuthorization()
         userLocation?.desiredAccuracy = kCLLocationAccuracyBest
         userLocationCoordinate = userLocation?.location?.coordinate
-        
+        guard let userLocationCoordinate = userLocationCoordinate else {return}
         let xScale:CLLocationDegrees = 0.01
         let yScale:CLLocationDegrees = 0.01
         let span:MKCoordinateSpan = MKCoordinateSpanMake(xScale, yScale)
-        
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(userLocationCoordinate!, span)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(userLocationCoordinate, span)
         hospitalMapView.setRegion(region, animated: true)
+        self.hospitalMapView.showsUserLocation = true
         
         
     }
@@ -48,6 +51,7 @@ class HospitalLocationViewController: UIViewController{
         guard let address = hospitalAddress else {return}
         getCoordinate(address.hospitalAddress) { (location) in
             guard let location = location else {return}
+            print(location)
             self.setNavigation = location
             let xScale:CLLocationDegrees = 0.01
             let yScale:CLLocationDegrees = 0.01
@@ -78,11 +82,9 @@ class HospitalLocationViewController: UIViewController{
     func navigationFun() {
         guard let setDestination = setNavigation else {return}
         
-        let taipei101 = CLLocationCoordinate2DMake(25.033850, 121.564977)
-        let airstation = setDestination
         if let userLocation = userLocationCoordinate {
             let pA = MKPlacemark(coordinate: userLocation, addressDictionary: nil)
-            let pB = MKPlacemark(coordinate: airstation, addressDictionary: nil)
+            let pB = MKPlacemark(coordinate: setDestination, addressDictionary: nil)
             
             let miA = MKMapItem(placemark: pA)
             let miB = MKMapItem(placemark: pB)
@@ -98,26 +100,21 @@ class HospitalLocationViewController: UIViewController{
        
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 
 extension HospitalLocationViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation{
+            return nil
+        }
+        
         var annView = hospitalMapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
         if annView == nil {
             annView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
         }
-        
         
         let imageView = UIImageView(image: #imageLiteral(resourceName: "telephone"))
         annView?.rightCalloutAccessoryView = imageView
@@ -129,12 +126,19 @@ extension HospitalLocationViewController: MKMapViewDelegate {
     }
     
     @objc func callOutButton() {
-        if let number = hospitalAddress?.hospitalNumber {
-            let newNumber = number.trimmingCharacters(in: .whitespaces)
+      
+        let number = hospitalAddress?.hospitalNumber.trimmingCharacters(in: .whitespaces)
+        guard let newNumber = number else { return }
+        if newNumber == "" {
+            let alert = UIAlertController(title: "提示", message:"無提供電話號碼", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "關閉", style: .default, handler: { (Alert) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+
+        }else {
             let url = URL(string: "tel://\(newNumber)" )
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        }else{
-            print("Error")
         }
     }
     

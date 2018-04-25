@@ -9,7 +9,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,9 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="BwX-d8-dOH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-cz-K8s">
                                 <rect key="frame" x="0.0" y="64" width="375" height="516"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7dO-tp-k12">
                                     <size key="itemSize" width="375" height="516"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -235,6 +237,7 @@
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="eSO-em-QOt">
                                 <rect key="frame" x="50" y="581" width="275" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="pageIndicatorTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -242,36 +245,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eSO-em-QOt" firstAttribute="top" secondItem="dtO-cz-K8s" secondAttribute="bottom" constant="1" id="5DR-zT-oEg"/>
+                            <constraint firstItem="BwX-d8-dOH" firstAttribute="leading" secondItem="cUf-uw-vLQ" secondAttribute="leading" id="Fee-OX-xdj"/>
                             <constraint firstItem="eSO-em-QOt" firstAttribute="bottom" secondItem="cUf-uw-vLQ" secondAttribute="bottom" id="JlE-7n-3QD"/>
                             <constraint firstItem="dtO-cz-K8s" firstAttribute="leading" secondItem="cUf-uw-vLQ" secondAttribute="leading" id="Pj4-LI-Igl"/>
                             <constraint firstItem="dtO-cz-K8s" firstAttribute="top" secondItem="cUf-uw-vLQ" secondAttribute="top" id="QaR-vN-OlO"/>
                             <constraint firstItem="eSO-em-QOt" firstAttribute="leading" secondItem="cUf-uw-vLQ" secondAttribute="leading" constant="50" id="WUz-eQ-7pe"/>
+                            <constraint firstItem="BwX-d8-dOH" firstAttribute="top" secondItem="d5p-2i-xzc" secondAttribute="top" id="ZBl-rO-HO0"/>
+                            <constraint firstAttribute="bottom" secondItem="BwX-d8-dOH" secondAttribute="bottom" id="ap4-pI-9TT"/>
+                            <constraint firstAttribute="trailing" secondItem="BwX-d8-dOH" secondAttribute="trailing" id="dgv-Gu-P8B"/>
                             <constraint firstItem="cUf-uw-vLQ" firstAttribute="trailing" secondItem="dtO-cz-K8s" secondAttribute="trailing" id="hBQ-8c-SP2"/>
                             <constraint firstItem="cUf-uw-vLQ" firstAttribute="trailing" secondItem="eSO-em-QOt" secondAttribute="trailing" constant="50" id="meQ-4B-viK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cUf-uw-vLQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="30e-La-Hbe">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Item" image="exit" id="g0l-kk-bXg">
-                                <connections>
-                                    <action selector="logout:" destination="Xbo-Kr-hnP" id="ajz-yx-qJ6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" systemItem="add" id="Abq-rb-IsD">
-                                <connections>
-                                    <segue destination="LaJ-3l-Tb7" kind="presentation" id="Jte-yU-MXW"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" image="edit" id="ix3-tq-SUf">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="exit" id="g0l-kk-bXg">
                             <connections>
-                                <action selector="editButton:" destination="Xbo-Kr-hnP" id="79q-Y8-v9x"/>
-                                <segue destination="LaJ-3l-Tb7" kind="presentation" id="gx1-dK-OTc"/>
+                                <action selector="logout:" destination="Xbo-Kr-hnP" id="ajz-yx-qJ6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Abq-rb-IsD">
+                            <connections>
+                                <segue destination="LaJ-3l-Tb7" kind="presentation" id="Jte-yU-MXW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backgroundImage" destination="BwX-d8-dOH" id="dtx-V5-uON"/>
                         <outlet property="collectionView" destination="dtO-cz-K8s" id="Cpa-1c-UwN"/>
                         <outlet property="page" destination="eSO-em-QOt" id="X5M-2I-gG7"/>
                         <segue destination="dp8-Ng-MWF" kind="presentation" identifier="loginSegue" id="rLE-QD-yS3"/>
@@ -624,7 +624,6 @@
                     <connections>
                         <segue destination="jHK-8g-HXa" kind="relationship" relationship="viewControllers" id="mGe-3T-Rse"/>
                         <segue destination="WVo-B0-yfU" kind="relationship" relationship="viewControllers" id="XHc-6H-Wjv"/>
-                        <segue destination="S52-s8-G5z" kind="relationship" relationship="viewControllers" id="INZ-B7-UXd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfT-cn-h7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -752,7 +751,7 @@
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-Ao-GUP">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-Ao-GUP">
                                             <rect key="frame" x="295" y="0.0" width="80" height="90"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-EW-6WN">
@@ -970,10 +969,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cmb-6l-98K">
-                                <rect key="frame" x="37" y="508.5" width="300" height="40"/>
+                                <rect key="frame" x="37" y="508.5" width="300" height="0.0"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-OS-U2j">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-OS-U2j">
+                                        <rect key="frame" x="-37" y="-508.5" width="300" height="40"/>
                                         <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CL7-rh-auU"/>
@@ -995,7 +994,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQE-c7-Y5U">
-                                        <rect key="frame" x="0.0" y="-508.5" width="300" height="40"/>
+                                        <rect key="frame" x="-37" y="-508.5" width="300" height="40"/>
                                         <color key="backgroundColor" red="0.82745098039999998" green="0.28235294119999998" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="2fG-Oq-dzV"/>
@@ -1044,7 +1043,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="––––––––––––––––––––––––     or      ––––––––––––––––––––––––" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcx-fO-Mnc">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="––––––––––––––––––––––––     or      ––––––––––––––––––––––––" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcx-fO-Mnc">
                                 <rect key="frame" x="31" y="465" width="313" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.48459201390000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2648,11 +2647,11 @@
             </objects>
             <point key="canvasLocation" x="7485.6000000000004" y="299.55022488755623"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--動物醫院-->
         <scene sceneID="mqW-oB-GBa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WVo-B0-yfU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Dj7-6K-Si6"/>
+                    <tabBarItem key="tabBarItem" title="動物醫院" image="hospital_tabbar" id="Dj7-6K-Si6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2gl-OV-i1a">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2706,11 +2705,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="addressLabel" destination="gVZ-hS-UVK" id="XYV-xQ-hjB"/>
                                     <outlet property="nameLabel" destination="AQJ-wv-hHK" id="so7-kR-hlh"/>
                                     <outlet property="numberLabel" destination="M7q-0k-LWk" id="hD1-d5-OaX"/>
-                                    <segue destination="xbG-Ne-Q4y" kind="show" id="jk9-3a-ksd"/>
+                                    <segue destination="xbG-Ne-Q4y" kind="show" identifier="hospitalForCell" id="jk9-3a-ksd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2720,12 +2720,7 @@
                             <outlet property="delegate" destination="WbW-XI-ghR" id="uBb-pD-mPs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Zl8-xg-e32">
-                        <rightBarButtonItems>
-                            <barButtonItem image="placeholder" id="Qab-L5-I0G"/>
-                            <barButtonItem image="filter" id="0Ir-JU-08I"/>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Zl8-xg-e32"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OI8-1S-LCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2763,31 +2758,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiZ-bK-SpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="2819.6401799100454"/>
+            <point key="canvasLocation" x="1292" y="2820"/>
         </scene>
     </scenes>
     <resources>
         <image name="PetMaster" width="1200" height="363"/>
         <image name="alarm" width="128" height="128"/>
+        <image name="background-1" width="1536" height="2687"/>
         <image name="beauty" width="128" height="128"/>
         <image name="buttonBackground" width="642" height="362"/>
         <image name="cancel" width="21" height="21"/>
         <image name="checked" width="21" height="21"/>
         <image name="dog-2" width="128" height="128"/>
         <image name="edit" width="21" height="21"/>
-        <image name="exit" width="24" height="24"/>
-        <image name="filter" width="21" height="21"/>
+        <image name="exit" width="21" height="21"/>
         <image name="home" width="24" height="24"/>
+        <image name="hospital_tabbar" width="21" height="21"/>
         <image name="man" width="256" height="256"/>
         <image name="navigation" width="21" height="21"/>
         <image name="petImageBackground" width="640" height="360"/>
         <image name="photo-camera" width="512" height="512"/>
-        <image name="placeholder" width="21" height="21"/>
         <image name="settings" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rLE-QD-yS3"/>
         <segue reference="rX5-aY-nBO"/>
-        <segue reference="gx1-dK-OTc"/>
     </inferredMetricsTieBreakers>
 </document>
